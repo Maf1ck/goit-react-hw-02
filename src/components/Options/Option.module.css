@@ -1,0 +1,9 @@
+.list {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+button{
+    background-color: rgb(131, 175, 27);
+}
