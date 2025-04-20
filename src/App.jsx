@@ -3,7 +3,7 @@ import Description from './components/Description/Description';
 import './App.css';
 import Feedback from './components/Feedback/Feedback';
 import Notification from './components/Notifications/Notification';
-import Option from './components/Options/Option';
+import Option from './components/Option/Option';
 
 
 function App() {
@@ -28,14 +28,16 @@ function App() {
   const positive = Math.round((counterGood / total) * 100)
 
   return (
-    <div>
-      <Description />
-      <Option
-        onGood={() => setCounterGood((prev) => prev + 1)}
-        onNeutral={() => setCounterNeutral((prev) => prev + 1)}
-        onBad={() => setCounterBad((prev) => prev + 1)}
-        onReset={Reset}
-        total={total} />
+   <div>
+    <Description />
+    <Option
+      onGood={() => setCounterGood((prev) => prev + 1)}
+      onNeutral={() => setCounterNeutral((prev) => prev + 1)}
+      onBad={() => setCounterBad((prev) => prev + 1)}
+      onReset={Reset}
+      total={total}
+    />
+    {total > 0 ? (
       <Feedback
         counterGood={counterGood}
         counterNeutral={counterNeutral}
@@ -43,8 +45,10 @@ function App() {
         positive={positive}
         total={total}
       />
-      <Notification/>
-    </div>
+    ) : (
+      <Notification />
+    )}
+  </div>
   );
 }
 export default App
